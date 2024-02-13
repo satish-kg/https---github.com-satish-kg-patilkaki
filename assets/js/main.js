@@ -143,7 +143,7 @@ const resetButton = document.getElementById('reset-button');
 const minutesElement = document.getElementById('minutes');
 const secondsElement = document.getElementById('seconds');
 
-let remainingTime = 15 * 60; // 15 minutes in seconds
+let remainingTime = 15 * 60;
 
 const countdown = setInterval(() => {
     remainingTime--;
@@ -163,9 +163,6 @@ const countdown = setInterval(() => {
 
 let timerInterval;
 
-startButton.addEventListener('click', startTimer);
-resetButton.addEventListener('click', resetTimer);
-
 function startTimer() {
     if (!timerInterval) {
         timerInterval = setInterval(() => {
@@ -178,7 +175,7 @@ function startTimer() {
                 startButton.disabled = false;
                 resetButton.disabled = false;
             }
-        }, 1000); // Update every second
+        }, 1000); 
 
         startButton.disabled = true;
         resetButton.disabled = false;
