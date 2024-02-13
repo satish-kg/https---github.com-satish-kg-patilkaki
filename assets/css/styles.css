@@ -63,8 +63,8 @@ html{
 /*========== Variables Dark theme ==========*/
 body.dark-theme{
   --first-color-send: #161212;
-  --title-color: #F3F1F1;
-  --text-color: #D1C7C8;
+  --title-color: #fada50;
+  --text-color: #fada50;
   --body-color: #0b0b0b;
   /* --body-color: #251D1E; */
   --container-color: #302728;
@@ -307,8 +307,8 @@ img{
 /*========== BUTTONS ==========*/
 .button{
   display: inline-block;
-  background-color: var(--first-color);
-  color: #fff;
+  background-color: #808080;
+  color: #fada50;
   padding: 1rem 1.5rem;
   border-radius: .5rem;
   font-weight: var(--font-semi-bold);
@@ -468,7 +468,7 @@ img{
 .form-container {
   width: 20rem;
   padding: 1rem;
-  background-color: #ffffff;
+  background-color: #b2ac88;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
