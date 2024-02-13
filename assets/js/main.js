@@ -135,3 +135,68 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
   
+// ========================== TIMER =========================
+const minutesDisplay = document.getElementById('minutes');
+const secondsDisplay = document.getElementById('seconds');
+const startButton = document.getElementById('start-button');
+const resetButton = document.getElementById('reset-button');
+const minutesElement = document.getElementById('minutes');
+const secondsElement = document.getElementById('seconds');
+
+let remainingTime = 15 * 60; // 15 minutes in seconds
+
+const countdown = setInterval(() => {
+    remainingTime--;
+
+    const minutes = Math.floor(remainingTime / 60);
+    const seconds = remainingTime % 60;
+
+    minutesElement.textContent = minutes < 10 ? `0${minutes}` : minutes;
+    secondsElement.textContent = seconds < 10 ? `0${seconds}` : seconds;
+
+    if (remainingTime === 0) {
+        clearInterval(countdown);
+        alert('Time is up!');
+    }
+}, 1000);
+
+
+let timerInterval;
+
+startButton.addEventListener('click', startTimer);
+resetButton.addEventListener('click', resetTimer);
+
+function startTimer() {
+    if (!timerInterval) {
+        timerInterval = setInterval(() => {
+            remainingTime--;
+            updateDisplay();
+
+            if (remainingTime === 0) {
+                clearInterval(timerInterval);
+                alert('Time is up!');
+                startButton.disabled = false;
+                resetButton.disabled = false;
+            }
+        }, 1000); // Update every second
+
+        startButton.disabled = true;
+        resetButton.disabled = false;
+    }
+}
+
+function resetTimer() {
+    clearInterval(timerInterval);
+    remainingTime = 15 * 60;
+    updateDisplay();
+    startButton.disabled = false;
+    resetButton.disabled = true;
+}
+
+function updateDisplay() {
+    const minutes = Math.floor(remainingTime / 60);
+    const seconds = remainingTime % 60;
+
+    minutesDisplay.textContent = minutes.toString().padStart(2, '0');
+    secondsDisplay.textContent = seconds.toString().padStart(2, '0');
+}
